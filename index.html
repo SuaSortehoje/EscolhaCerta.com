@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Selection</title>
-    <link rel="stylesheet" href="styles.css">
+
+<link rel="icon" href="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/images (1).jpeg" type="image/png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+ <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+
+<link rel="icon" href="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/images (1).jpeg" "> 
+
+<meta name="url" content="https://placar-exato4.webnode.page/timecerto/"> 
+
+     <title> bahia da sorte</title>
+     
 <style>body { background:grey;
     font-family: Arial, sans-serif;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1000%;
     margin: 0 auto;
     text-align: center;
 }
@@ -44,6 +55,11 @@ button {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    background:lightblue;
+    border-radius:10px;
+}
+button:hover {
+    background:#00ff00;
 }
 .image-checkbox{
     display:none;
@@ -53,7 +69,7 @@ button {
     background-color: grey;
     border: 1px solid black;
     overflow: hidden;
-    overflow-x: auto;
+    overflow-x: auto ;
     white-space: nowrap;
     margin-bottom: 0px;
     display: flex;
@@ -63,15 +79,22 @@ button {
 }
 
 .time-button {
-    background-color: lightblue;
+    
     padding: 0px 10px;
     font-size: 1em;
     cursor: pointer;
     margin: 2px; /* Espaçamento entre os botões */
 }
+.time-button1{
+    width:43%;
+    padding: 0px 0px;
+    background:grey;
+    color:grey;
+    outline:none;
+}
 
     .time-button.selected {
-    background-color: lightblue;
+    background-color: ;
   }
 .horarios-container {
             display: flex;
@@ -83,9 +106,7 @@ button {
             width: 100%;
             
         }
-        .time-button.selected {
-    background-color: lightblue;
-  }
+      
     .time-button.hidden {
     display: none;
 }
@@ -93,208 +114,215 @@ button {
     text-align:center;
     border-radius:10px;
 }
+.selected {
+    background:gold;
+    color: black;
+}
+
+
 </style>
 </head>
 <body>
+
     <div class="container">
-      
+      <div id="checkboxCount">Times Marcados: 0</div>
         <div class="images-container">
             <!-- 50 image containers -->
             <div class="image-container">
                 <input id="time1" type="checkbox" class="image-checkbox" id="image1">
-                <label for="time1"><img for="time1" src="https://raw.githubusercontent.com/Savanty/Time-/main/1.jpeg" alt="Image 1"></label>
+                <label for="time1"><img click="alert('athletico-pr')" for="time1" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/athletico-pr.png" alt="TIME 1"></label>
             </div>
             <div class="image-container">
                 <input id="time2" type="checkbox" class="image-checkbox" id="image2">
-                <label for ="time2"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/2.jpeg" alt="Image 2">
+                <label for ="time2"><img onclick="alert ('bahia')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/bahia.png" alt="TIME 2">
             </div>
             <div class="image-container">
                 <input id="time3" type="checkbox" class="image-checkbox" id="image3">
-                <label for ="time3"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/3.jpeg" alt="Image 3">
+                <label for ="time3"><img onclick="alert ('atletico-mg')" for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/atletico-mg.png" alt="TIME 3">
             </div>
             <div class="image-container">
                 <input id="time4" type="checkbox" class="image-checkbox" id="image4">
-                <label for ="time4"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/4.jpeg" alt="Image 4">
+                <label for ="time4"><img onclick="alert ('gremio')" for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/gremio.png" alt="TIME 4">
             </div>
             <div class="image-container">
                 <input id="time5" type="checkbox" class="image-checkbox" id="image5">
-                <label for ="time5"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/5.jpeg" alt="Image 5">
+                <label for ="time5"><img onclick="alert ('america-mg')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/america-mg.png" alt="TIME 29">
             </div>
             <div class="image-container">
                 <input id="time6" type="checkbox" class="image-checkbox" id="image6">
-                <label for ="time6"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/6.jpeg" alt="Image 6">
+                <label for ="time6"><img onclick="alert ('cruzeiro')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/cruzeiro.png" alt="TIME 6">
             </div>
             <div class="image-container">
                 <input id="time7" type="checkbox" class="image-checkbox" id="image7">
-                <label for ="time7"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/7.jpeg" alt="Image 7">
+                <label for ="time7"><img onclick="alert ('corinthians')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/corinthians.png" alt="TIME 7">
             </div>
             <div class="image-container">
                 <input id="time8" type="checkbox" class="image-checkbox" id="image8">
-                <label for ="time8"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/8.jpeg" alt="Image 8">
+                <label for ="time8"><img onclick="alert ('botafogo')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/botafogo.jpeg" alt="TIME 8">
             </div>
             <div class="image-container">
                 <input id="time9" type="checkbox" class="image-checkbox" id="image9">
-                <label for ="time9"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/9.jpeg" alt="Image 9">
+                <label for ="time9"><img onclick="alert ('flamengo')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/flamengo.png" alt="TIME 9">
             </div>
             <div class="image-container">
                 <input id="time10" type="checkbox" class="image-checkbox" id="image10">
-                <label for ="time10"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/10.jpeg" alt="Image 10">
+                <label for ="time10"><img onclick="alert ('fluminense')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/fluminense.jpeg" alt="TIME 10">
             </div>
             <div class="image-container">
                 <input id="time11" type="checkbox" class="image-checkbox" id="image11">
-                <label for ="time11"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/11.jpeg" alt="Image 11">
+                <label for ="time11"><img onclick="alert ('fortaleza')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/fortaleza.png" alt="TIME 11">
             </div>
             <div class="image-container">
                 <input id="time12" type="checkbox" class="image-checkbox" id="image12">
-                <label for ="time12"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/12.jpeg" alt="Image 12">
+                <label for ="time12"><img onclick="alert ('cuiaba')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/cuiaba.png" alt="TIME 12">
             </div>
             <div class="image-container">
                 <input id="time13" type="checkbox" class="image-checkbox" id="image13">
-                <label for ="time13"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/13.jpeg" alt="Image 13">
+                <label for ="time13"><img onclick="alert ('coritiba')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/coritiba.png" alt="TIME 13">
             </div>
             <div class="image-container">
                 <input id="time14" type="checkbox" class="image-checkbox" id="image14">
-                <label for ="time14"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/14.jpeg" alt="Image 14">
+                <label for ="time14"><img onclick="alert ('internacional')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/internacional.png" alt="TIME 14">
             </div>
             <div class="image-container">
                 <input id="time15" type="checkbox" class="image-checkbox" id="image15">
-                <label for ="time15"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/15.jpeg" alt="Image 15">
+                <label for ="time15"><img onclick="alert ('palmeiras')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/palmeiras.png" alt="TIME 15">
             </div>
             <div class="image-container">
                 <input id="time16" type="checkbox" class="image-checkbox" id="image16">
-                <label for ="time16"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/16.jpeg" alt="Image 16">
+                <label for ="time16"><img onclick="alert ('bragatino.')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/bragatino.jpeg" alt="TIME 16">
             </div>.
             <div class="image-container">
                 <input id="time17" type="checkbox" class="image-checkbox" id="image17">
-                <label for ="time17"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/17.jpeg" alt="Image 17">
+                <label for ="time17"><img onclick="alert ('Santos')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/Santos.png" alt="TIME 40">
             </div>
             <div class="image-container">
                 <input id="time18" type="checkbox" class="image-checkbox" id="image18">
-                <label for ="time18"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/18.jpeg" alt="Image 18">
+                <label for ="time18"><img onclick="alert ('Sao-Paulo')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/Sao-Paulo-1.png" alt="TIME 18">
             </div>
             <div class="image-container">
                 <input id="time19" type="checkbox" class="image-checkbox" id="image19">
-                <label for ="time19"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/19.jpeg" alt="Image 19">
+                <label for ="time19"><img onclick="alert ('goias')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/goias.png" alt="TIME 19">
             </div>
             <div class="image-container">
                 <input id="time20" type="checkbox" class="image-checkbox" id="image20">
-                <label for ="time20"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/20.jpeg" alt="Image 20">
+                <label for ="time20"><img onclick="alert ('vasco')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/vasco.png" alt="TIME 20">
             </div>
             <div class="image-container">
                 <input id="time21" type="checkbox" class="image-checkbox" id="image21">
-                <label for ="time21"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/21.jpeg" alt="Image 21">
+                <label for ="time21"><img onclick="alert ('chapecoence')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/chapecoence.png" alt="TIME 21">
             </div>
             <div class="image-container">
                 <input id="time22" type="checkbox" class="image-checkbox" id="image22">
-                <label for ="time22"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/22.jpeg" alt="Image 22">
+                <label for ="time22"><img onclick="alert ('atletico goianiese')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/atletico goianiese.png" alt="TIME 13">
             </div>
             <div class="image-container">
                 <input id="time23" type="checkbox" class="image-checkbox" id="image23">
-                <label for ="time23"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/23.jpeg" alt="Image 23">
+                <label for ="time23"><img onclick="alert ('mirassol')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/mirassol.png" alt="TIME 23">
             </div>
             <div class="image-container">
                 <input id="time24" type="checkbox" class="image-checkbox" id="image24">
-                <label for ="time24"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/24.jpeg" alt="Image 24">
+                <label for ="time24"><img onclick="alert ('criciuma')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/criciuma.png" alt="TIME 17">
             </div>
             <div class="image-container">
                 <input id="time25" type="checkbox" class="image-checkbox" id="image25">
-                <label for ="time25"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/25.jpeg" alt="Image 25">
+                <label for ="time25"><img onclick="alert ('avai')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/avai.png" alt="TIME 25">
             </div>
             <div class="image-container">
                 <input id="time26" type="checkbox" class="image-checkbox" id="image26">
-                <label for ="time26"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/26.jpeg" alt="Image 26">
+                <label for ="time26"><img onclick="alert ('ituano')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/ituano.png" alt="TIME 26">
             </div>
             <div class="image-container">
                 <input id="time27" type="checkbox" class="image-checkbox" id="image27">
-                <label for ="time27"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/27.jpeg" alt="Image 27">
+                <label for ="time27"><img onclick="alert ('crb')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/crb.png" alt="TIME 27">
             </div>
             <div class="image-container">
                 <input id="time28" type="checkbox" class="image-checkbox" id="image28">
-                <label for ="time28"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/28.jpeg" alt="Image 28">
+                <label for ="time28"><img onclick="alert ('ceara')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/ceara.png" alt="TIME 28">
             </div>
             <div class="image-container">
                 <input id="time29" type="checkbox" class="image-checkbox" id="image29">
-                <label for ="time29"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/29.jpeg" alt="Image 29">
+                <label for ="time29"><img onclick="alert ('amazonas')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/amazonas.png" alt="TIME 22">
             </div>
             <div class="image-container">
                 <input id="time30" type="checkbox" class="image-checkbox" id="image30">
-                <label for ="time30"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/30.jpeg" alt="Image 30">
+                <label for ="time30"><img onclick="alert ('sport')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/sport.png" alt="TIME 30">
             </div>
             <div class="image-container">
                 <input id="time31" type="checkbox" class="image-checkbox" id="image31">
-                <label for ="time31"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/31.jpeg" alt="Image 31">
+                <label for ="time31"><img onclick="alert ('brusque')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/brusque.png" alt="TIME 24.">
             </div>
             <div class="image-container">
                 <input id="time32" type="checkbox" class="image-checkbox" id="image32">
-                <label for ="time32"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/32.jpeg" alt="Image 32">
+                <label for ="time32"><img onclick="alert ('guarani')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/guarani.png" alt="TIME 32">
             </div>
             <div class="image-container">
                 <input id="time33" type="checkbox" class="image-checkbox" id="image33">
-                <label for ="time33"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/33.jpeg" alt="Image 33">
+                <label for ="time33"><img onclick="alert ('juventude')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/juventude.png" alt="TIME 19">
             </div>
             <div class="image-container">
                 <input id="time34" type="checkbox" class="image-checkbox" id="image34">
-                <label for ="time34"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/34.jpeg" alt="Image 34">
+                <label for ="time34"><img onclick="alert ('botafogo-sp')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/botafogo-sp.png" alt="TIME 34">
             </div>
             <div class="image-container">
                 <input id="time35" type="checkbox" class="image-checkbox" id="image35">
-                <label for ="time35"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/35.jpeg" alt="Image 35">
+                <label for ="time35"><img onclick="alert ('novorizontino')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/novorizontino.png" alt="TIME 35">
             </div>
             <div class="image-container">
                 <input id="time36" type="checkbox" class="image-checkbox" id="image36">
-                <label for ="time36"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/36.jpeg" alt="Image 36">
+                <label for ="time36"><img onclick="alert ('vitoria')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/vitoria.png" alt="TIME 5">
             </div>
             <div class="image-container">
                 <input id="time37" type="checkbox" class="image-checkbox" id="image37">
-                <label for ="time37"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/37.jpeg" alt="Image 37">
+                <label for ="time37"><img onclick="alert ('villa_nova-mg')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/villa_nova-mg.png" alt="TIME 37">
             </div>
             <div class="image-container">
                 <input id="time38" type="checkbox" class="image-checkbox" id="image38">
-                <label for ="time38"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/38.jpeg" alt="Image 38">
+                <label for ="time38"><img onclick="alert ('Ponte Preta')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/Ponte Preta.png" alt="TIME 38">
             </div>
             <div class="image-container">
                 <input id="time39" type="checkbox" class="image-checkbox" id="image39">
-                <label for ="time39"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/39.jpeg" alt="Image 39">
+                <label for ="time39"><img onclick="alert ('operario_fc')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/operario_fc.png" alt="TIME 33">
             </div>
             <div class="image-container">
                 <input id="time40" type="checkbox" class="image-checkbox" id="image40">
-                <label for ="time40"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/40.jpeg" alt="Image 40">
+                <label for ="time40"><img onclick="alert ('paysandu')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/paysandu.png" alt="TIME 36">
             </div>
             <div class="image-container">
                 <input id="time41" type="checkbox" class="image-checkbox" id="image41">
-                <label for ="time41"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/41.jpeg" alt="Image 41">
+                <label for ="time41"><img onclick="alert ('arsenal')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/arsenal.png" alt="TIME 41">
             </div>
             <div class="image-container">
                 <input id="time42" type="checkbox" class="image-checkbox" id="image42">
-                <label for ="time42"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/42.jpeg" alt="Image 42">
+                <label for ="time42"><img onclick="alert ('chelsea')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/chelsea.png" alt="TIME 42">
             </div>
             <div class="image-container">
                 <input id="time43" type="checkbox" class="image-checkbox" id="image43">
-                <label for ="time43"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/43.jpeg" alt="Image 43">
+                <label for ="time43"><img onclick="alert ('liverpool')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/liverpool.png" alt="TIME 43">
             </div>
             <div class="image-container">
                 <input id="time44" type="checkbox" class="image-checkbox" id="image44">
-                <label for ="time44"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/44.jpeg" alt="Image 44">
+                <label for ="time44"><img onclick="alert ('mancheste United')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/mancheste United.png" alt="TIME 44">
             </div>
             <div class="image-container">
-                <input id="time45" type="checkbox" class="image-checkbox" id="image45">
-                <label for ="time45"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/45.jpeg" alt="Image 45">
+               <input id="time45" type="checkbox" class="image-checkbox" id="image45">
+                <label for ="time45"><img onclick="alert ('Atlético de Madrid')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/Atlético de Madrid.png" alt="TIME 45">
             </div>
             <div class="image-container">
                 <input id="time46" type="checkbox" class="image-checkbox" id="image46">
-                <label for ="time46"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/46.jpeg" alt="Image 46">
+                <label for ="time46"><img onclick="alert ('barcelona')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/barcelona.png" alt="TIME 46">
             </div>
             <div class="image-container">
                 <input id="time47" type="checkbox" class="image-checkbox" id="image47">
-                <label for ="time47"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/47.jpeg" alt="Image 47">
+                <label for ="time47"><img onclick="alert ('real-madrid.')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/real-madrid.png" alt="TIME 47">
             </div>
             <div class="image-container">
                 <input id="time48" type="checkbox" class="image-checkbox" id="image48">
-                <label for ="time48"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/48.jpeg" alt="Image 48">
+                <label for ="time48"><img onclick="alert (inter Milão)"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/internazionale.png" alt="TIME 48">
             </div>
             <div class="image-container">
                 <input id="time49" type="checkbox" class="image-checkbox" id="image49">
-                <label for ="time49"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/49.jpeg" alt="Image 49">
+                <label for ="time49"><img onclick="alert ('juventus')"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/juventus.jpeg" alt="TIME 49">
             </div>
             <div>
           <div id="result"></div>
@@ -304,7 +332,7 @@ button {
         </div>
             <div class="image-container">
                 <input id="time50" type="checkbox" class="image-checkbox" id="image50">
-                <label for ="time50"><img for="" src="https://raw.githubusercontent.com/Savanty/Time-/main/50.jpeg" alt="Image 50">
+                <label for ="time50"><img onclick="alert (Paris saint germani)"for="" src="https://raw.githubusercontent.com/SuaSortehoje/placarBet/main/psg.png" alt="TIME 50">
             </div>
             
         </div>
@@ -315,6 +343,7 @@ button {
   
     <div class="radio-container">
       <div class="time-container">
+         <button type="button"  class="time-button1" value="defauld" onclick="toggleSelection(this)">01:00</button>
           <button type="button" class="time-button" value="01:00" onclick="toggleSelection(this)">01:00</button>
         <button type="button" class="time-button" value="01:20" onclick="toggleSelection(this)">01:20</button>
         <button type="button" class="time-button" value="01:40" onclick="toggleSelection(this)">01:40</button>
@@ -384,15 +413,14 @@ button {
         <button type="button" class="time-button" value="22:40" onclick="toggleSelection(this)">22:40</button>
         <button type="button" class="time-button" value="23:00" onclick="toggleSelection(this)">23:00</button>
         <button type="button" class="time-button" value="23:20" onclick="toggleSelection(this)">23:20</button>
-        <button type="button" class="time-button" value="23:40" onclick="toggleSelection(this)">23:0</button>
+        <button type="button" class="time-button" value="23:40" onclick="toggleSelection(this)">23:40</button>
       </div>
     </div>
   </div>
           </div>
         <button id="sendViaWhatsapp">Enviar via WhatsApp</button>
  
-    <script>
-    
+ <script>
     let maxAllowed = 10; // Número máximo permitido de checkboxes marcados
 
     function calculate() {
@@ -409,7 +437,7 @@ button {
 
         // Atualiza o resultado apenas se estiver dentro do limite
         let result = (inputValue * 35) / imageCount;
-        document.getElementById('result').textContent = "Resultado: " + result.toFixed(2);
+        document.getElementById('result').textContent = "Total: " + result.toFixed(2);
 
         // Chama a função para ajustar a opacidade das imagens
         toggleOpacity();
@@ -429,22 +457,22 @@ button {
     });
 
     function hidePastTimes() {
-        const currentTime = new Date();
-        const timeButtons = document.querySelectorAll('.time-button');
-        timeButtons.forEach(button => {
-            const buttonTime = new Date();
-            const [hours, minutes] = button.value.split(':').map(Number);
-            buttonTime.setHours(hours, minutes);
-            if (buttonTime <= currentTime) { // Inclui horários passados e atuais
-                button.classList.add('hidden');
-            } else {
-                button.classList.remove('hidden');
-            }
-        });
-    }
+            const currentTime = new Date();
+            const currentHours = currentTime.getHours();
+            const currentMinutes = currentTime.getMinutes();
+            const buttons = document.querySelectorAll('.time-button');
 
-    hidePastTimes(); // Chama a função para ocultar os botões de horários passados
+            buttons.forEach(button => {
+                const [hours, minutes] = button.value.split(':').map(Number);
+                if (hours < currentHours || (hours === currentHours && minutes <= currentMinutes)) {
+                    button.classList.add('hidden');
+                }
+            });
+        }
 
+        // Chama a função para esconder os horários passados ao carregar a página
+        window.onload = hidePastTimes;
+        
     function toggleSelection(button) {
         button.classList.toggle('selected');
     }
@@ -452,7 +480,7 @@ button {
     function sendWhatsApp() {
         let selectedImages = [];
         let selectedTimes = [];
-
+        
         // Verifica se pelo menos uma imagem está selecionada
         let selectedImageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
         if (selectedImageCheckboxes.length === 0) {
@@ -474,40 +502,49 @@ button {
             return;
         }
 
-        // Calcula o total a pagar multiplicando o valor digitado pelo número de horários selecionados
-        let total = inputValue * selectedTimeButtons.length;
+        // Calcula o total a pagar e a receber
+        let totalPagar = inputValue * selectedTimeButtons.length;
+        let totalReceber = (inputValue * 35) / selectedImageCheckboxes.length;
 
         // Prepara as URLs das imagens selecionadas
         selectedImageCheckboxes.forEach(checkbox => {
-            let imageUrl = checkbox.nextElementSibling.querySelector('img').getAttribute('src');
-            let imageNumber = imageUrl.match(/\/(\d+)\.jpeg/)[1]; // Extrai o número da imagem
-            selectedImages.push(imageNumber);
+            let img = checkbox.nextElementSibling.querySelector('img');
+            let imageUrl = img.getAttribute('src');
+            let altText = img.getAttribute('alt');
+            let imageName = imageUrl.match(/main\/([^/]+)\.(jpeg|jpg|png)/)[1]; // Extrai o nome da imagem
+            selectedImages.push(`${imageName} (${altText})`);
         });
 
         // Prepara os horários selecionados
         selectedTimeButtons.forEach(button => {
             selectedTimes.push(button.textContent);
         });
-
-   let message = "Seleção de números de imagens:\n";
-        selectedImages.forEach(imageNumber => {
-            message += imageNumber + "\n";
-        });
-
-        message += "\nHorários selecionados:\n";
-        selectedTimes.forEach(time => {
-            message += time + "\n";
-        });
+var resultado= "https://www.divertidu.com/time-certo#resultados;"
 
         
-        message += "\nTotal a pagar: " + total.toFixed(2);
 
+         let message  ="*⚽TIME CERTO⚽*\n\n";
+      
+                  message += "*Time Escolhindo*\n\n";
+       
+       `${new Date().toLocaleDateString()}
+${new Date().toLocaleTimeString()}`
+       
+        selectedImages.forEach(imageName => {
+                   message += imageName + "\n";
+        });
+
+                            message += "\nHorários selecionados:\n";
+        selectedTimes.forEach(time => {
+                   message += time + "\n";
+        });
+
+        message += "\nTotal a pagar: " + totalPagar.toFixed(2);
+                 message += "\nTotal a receber: " + totalReceber.toFixed(2);
+        
+message += `\n\nRESULATADO : ${resultado}`
         // Constrói o link do WhatsApp com a mensagem codificada
         let whatsappLink = `https://wa.me/5571992290058?text=${encodeURIComponent(message)}`;
-
-        // Abre o link do WhatsApp em uma nova aba
-        window.open(whatsappLink, '_blank');
-
 
         // Abre o link do WhatsApp em uma nova aba
         window.open(whatsappLink, '_blank');
@@ -518,10 +555,53 @@ button {
 
     // Adiciona event listener para o botão de enviar via WhatsApp
     document.getElementById('sendViaWhatsapp').addEventListener('click', sendWhatsApp);
-    
-</script>
 
+    document.addEventListener('DOMContentLoaded', function() {
+        var inputValue = document.getElementById('inputValue');
+        var resultDiv = document.getElementById('result');
+        var checkboxCountDiv = document.getElementById('checkboxCount');
+
+        function updateTotal() {
+            var value = parseFloat(inputValue.value) || 0; // Obtém o valor do campo de entrada
+            if (!isNaN(value)) {
+                // Atualiza o resultado apenas se estiver dentro do limite
+                let imageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
+                let imageCount = imageCheckboxes.length;
+
+                if (imageCount > maxAllowed) {
+                    return; // Se exceder o limite, não atualiza o total
+                }
+
+                let result = (value * 35) / imageCount;
+                resultDiv.textContent = 'Total: ' + result.toFixed(2); // Atualiza a exibição do total
+            }
+        }
+
+        inputValue.addEventListener('input', updateTotal); // Atualiza o total enquanto o usuário digita
+
+        function updateCheckboxCount() {
+            var checkboxes = document.querySelectorAll('.image-checkbox');
+            var checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+            checkboxCountDiv.textContent = 'Time Marcados: ' + checkedCount;
+        }
+
+        var checkboxes = document.querySelectorAll('.image-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateCheckboxCount); // Atualiza a contagem quando o checkbox é marcado/desmarcado
+        });
+
+        updateCheckboxCount(); // Inicializa a contagem de checkboxes marcados
+    });
+
+    function toggleSelection(button) {
+        button.classList.toggle('selected');
+    }
+
+    function submitTimes() {
+        const selectedButtons = document.querySelectorAll('.time-button.selected');
+        const selectedTimes = Array.from(selectedButtons).map(button => button.value);
+        alert('Horários selecionados: ' + selectedTimes.join(', '));
+    }
+</script>
 </body>
 </html>
-
-.

@@ -490,27 +490,23 @@ button:hover {
   </div>
           </div>
         <button id="sendViaWhatsapp">VALIDAR BILHETE</button>
- 
  <script>
-    let maxAllowed = 10; // Número máximo permitido de checkboxes marcados
+   let maxAllowed = 10;
 
     function calculate() {
         let inputValue = parseFloat(document.getElementById('inputValue').value) || 0;
         let imageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
         let imageCount = imageCheckboxes.length;
 
-        // Verifica se excedeu o limite de 10 checkboxes marcados
         if (imageCount > maxAllowed) {
             alert("Você só pode selecionar até 10 imagens.");
-            this.checked = false; // Desmarca o checkbox atual que excedeu o limite
+            this.checked = false;
             return;
         }
 
-        // Atualiza o resultado apenas se estiver dentro do limite
         let result = (inputValue * 35) / imageCount;
         document.getElementById('result').textContent = "Total: " + result.toFixed(2);
 
-        // Chama a função para ajustar a opacidade das imagens
         toggleOpacity();
     }
 
@@ -522,30 +518,27 @@ button:hover {
         });
     }
 
-    // Adiciona evento de mudança para os checkboxes
     document.querySelectorAll('.image-checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', calculate);
     });
 
     function hidePastTimes() {
-    const currentTime = new Date();
-    const currentHours = currentTime.getHours();
-    const currentMinutes = currentTime.getMinutes();
-    const buttons = document.querySelectorAll('.time-button');
+        const currentTime = new Date();
+        const currentHours = currentTime.getHours();
+        const currentMinutes = currentTime.getMinutes();
+        const buttons = document.querySelectorAll('.time-button');
 
-    buttons.forEach(button => {
-        const [hours, minutes] = button.value.split(':').map(Number);
-        const timeDifference = (hours * 60 + minutes) - (currentHours * 60 + currentMinutes);
+        buttons.forEach(button => {
+            const [hours, minutes] = button.value.split(':').map(Number);
+            const timeDifference = (hours * 60 + minutes) - (currentHours * 60 + currentMinutes);
 
-        // Esconde o botão se estiver no passado ou a menos de 2 minutos do horário atual
-        if (timeDifference <= 2) {
-            button.classList.add('hidden');
-        }
-    });
-}
+            if (timeDifference <= 2) {
+                button.classList.add('hidden');
+            }
+        });
+    }
 
-// Chama a função para esconder os horários passados ao carregar a página
-window.onload = hidePastTimes;
+    window.onload = hidePastTimes;
 
     function toggleSelection(button) {
         button.classList.toggle('selected');
@@ -554,80 +547,46 @@ window.onload = hidePastTimes;
     function sendWhatsApp() {
         let selectedImages = [];
         let selectedTimes = [];
-        
-        // Verifica se pelo menos uma imagem está selecionada
+
         let selectedImageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
         if (selectedImageCheckboxes.length === 0) {
             alert("Por favor, selecione pelo menos uma imagem.");
             return;
         }
 
-        // Verifica se pelo menos um horário está selecionado
         let selectedTimeButtons = document.querySelectorAll('.time-button.selected');
         if (selectedTimeButtons.length === 0) {
             alert("Por favor, selecione pelo menos um horário.");
             return;
         }
 
-        // Verifica se o campo de valor está preenchido
         let inputValue = parseFloat(document.getElementById('inputValue').value) || 0;
         if (inputValue === 0) {
             alert("Por favor, digite um valor válido.");
             return;
         }
 
-        // Calcula o total a pagar e a receber
-        let totalPagar = inputValue * selectedTimeButtons.length;
-        let totalReceber = (inputValue * 35) / selectedImageCheckboxes.length;
-
-        // Prepara as URLs das imagens selecionadas
         selectedImageCheckboxes.forEach(checkbox => {
             let img = checkbox.nextElementSibling.querySelector('img');
             let imageUrl = img.getAttribute('src');
             let altText = img.getAttribute('alt');
-            let imageName = imageUrl.match(/main\/([^/]+)\.(jpeg|jpg|png)/)[1]; // Extrai o nome da imagem
+            let imageName = imageUrl.match(/main\/([^/]+)\.(jpeg|jpg|png)/)[1];
             selectedImages.push(`${imageName} (${altText})`);
         });
 
-        // Prepara os horários selecionados
         selectedTimeButtons.forEach(button => {
             selectedTimes.push(button.textContent);
         });
-var resultado= "https://www.divertidu.com/time-certo#resultados;"
 
-        
+        // Armazene os dados no localStorage
+        localStorage.setItem('selectedImages', JSON.stringify(selectedImages));
+        localStorage.setItem('selectedTimes', JSON.stringify(selectedTimes));
+        localStorage.setItem('inputValue', inputValue);
 
-         let message  ="*⚽TIME CERTO⚽*\n\n";
-      
-                  message += "*Time Escolhindo*\n\n";
-       
-       `${new Date().toLocaleDateString()}
-${new Date().toLocaleTimeString()}`
-       
-        selectedImages.forEach(imageName => {
-                   message += imageName + "\n";
-        });
-
-                            message += "\nHorários selecionados:\n";
-        selectedTimes.forEach(time => {
-                   message += time + "\n";
-        });
-
-        message += "\nTotal a pagar: " + totalPagar.toFixed(2);
-                 message += "\nTotal a receber: " + totalReceber.toFixed(2);
-        
-message += `\n\nRESULATADO : ${resultado}`
-        // Constrói o link do WhatsApp com a mensagem codificada
-        let whatsappLink = `https://wa.me/5571992290058?text=${encodeURIComponent(message)}`;
-
-        // Abre o link do WhatsApp em uma nova aba
-        window.open(whatsappLink, '_blank');
-
-        // Simulação de envio via WhatsApp (alerta no navegador)
-        alert("Enviando via WhatsApp:\n\n" + message);
+        // Redirecionar para a página de pagamento
+        window.location.href = "pixPagamento.html";
     }
 
-    // Adiciona event listener para o botão de enviar via WhatsApp
     document.getElementById('sendViaWhatsapp').addEventListener('click', sendWhatsApp);
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -636,22 +595,21 @@ message += `\n\nRESULATADO : ${resultado}`
         var checkboxCountDiv = document.getElementById('checkboxCount');
 
         function updateTotal() {
-            var value = parseFloat(inputValue.value) || 0; // Obtém o valor do campo de entrada
+            var value = parseFloat(inputValue.value) || 0;
             if (!isNaN(value)) {
-                // Atualiza o resultado apenas se estiver dentro do limite
                 let imageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
                 let imageCount = imageCheckboxes.length;
 
                 if (imageCount > maxAllowed) {
-                    return; // Se exceder o limite, não atualiza o total
+                    return;
                 }
 
                 let result = (value * 35) / imageCount;
-                resultDiv.textContent = 'Total: ' + result.toFixed(2); // Atualiza a exibição do total
+                resultDiv.textContent = 'Total: ' + result.toFixed(2);
             }
         }
 
-        inputValue.addEventListener('input', updateTotal); // Atualiza o total enquanto o usuário digita
+        inputValue.addEventListener('input', updateTotal);
 
         function updateCheckboxCount() {
             var checkboxes = document.querySelectorAll('.image-checkbox');
@@ -661,10 +619,10 @@ message += `\n\nRESULATADO : ${resultado}`
 
         var checkboxes = document.querySelectorAll('.image-checkbox');
         checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateCheckboxCount); // Atualiza a contagem quando o checkbox é marcado/desmarcado
+            checkbox.addEventListener('change', updateCheckboxCount);
         });
 
-        updateCheckboxCount(); // Inicializa a contagem de checkboxes marcados
+        updateCheckboxCount();
     });
 
     function toggleSelection(button) {
@@ -677,5 +635,6 @@ message += `\n\nRESULATADO : ${resultado}`
         alert('Horários selecionados: ' + selectedTimes.join(', '));
     }
 </script>
+
 </body>
 </html>

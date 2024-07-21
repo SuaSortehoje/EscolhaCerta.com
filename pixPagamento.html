@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//pt-BR">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<title>BINGO MULTI JOGO</title>
+<style>
+body {
+    background: BLACK;
+}
+textarea {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+h {
+    color: white;
+    margin-left: 150px;
+}
+h3 {
+    color: white;
+    margin-left: 40%;
+}
+k {
+    color: white;
+    margin-left: 80px;
+}
+p {
+    color: white;
+}
+.btn {
+    margin-left: 30%;
+    height: 30px;
+    width: 30%;
+    background: green;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h3>AREA PIX</h3>
+<img src="21.jpg" width="100%"height="90px">
+
+<h>PIX COLA</h><br>
+<p>1º Copie o código PIX abaixo.</p>
+<p>Click em COPIAR</p>
+<p>2º Abra o app do seu banco e escolha a opção PIX, como se fosse fazer uma transferência.</p>
+<p>3º Selecione a opção PIX cópia e cola, cole a chave copiada e confirme o pagamento</p>
+<p>4º APOS A transferência ENVIA o COMPROVANTE</p>
+👇👇👇<br>
+<k>PARA OUTROS VALORES</k>
+
+<textarea id="texto1" readonly>
+00020126780014br.gov.bcb.pix0136901d5ecf-8bbd-4eff-8515-8d744dce3d6d0216BINGO MULTIJOGO 5204000053039865802BR5922Carlos Dos Santos Reis6008Salvador62130509MULTIJOGO63044E4C
+</textarea>
+<br>
+<button class="btn" onclick="copiarTexto1()">Copiar</button><br><br>
+<k>PIX CPF</k>
+<textarea id="texto2" readonly>
+02562631595
+</textarea>
+<br>
+<button class="btn" onclick="copiarTexto2()">Copiar</button><br>
+
+<script>
+function copiarTexto1() {
+    let textoCopiado = document.getElementById("texto1");
+    textoCopiado.select();
+    textoCopiado.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("CODIGO PIX COPIADO COM SUCESSO:\n\n " + textoCopiado.value);
+
+    // Redirecionar para o WhatsApp após a cópia
+    enviarParaWhatsApp();
+}
+
+function copiarTexto2() {
+    let textoCopiado = document.getElementById("texto2");
+    textoCopiado.select();
+    textoCopiado.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("CPF PIX COPIADO COM SUCESSO:\n\n " + textoCopiado.value);
+
+    // Redirecionar para o WhatsApp após a cópia
+    enviarParaWhatsApp();
+}
+
+function enviarParaWhatsApp() {
+    // Recupere as informações de time, horário e valor dos elementos relevantes
+    const selectedImages = JSON.parse(localStorage.getItem('selectedImages')) || [];
+    const selectedTimes = JSON.parse(localStorage.getItem('selectedTimes')) || [];
+    const inputValue = parseFloat(localStorage.getItem('inputValue')) || 0;
+
+    let message = "*⚽TIME CERTO⚽*\n\n";
+    message += "*Time Escolhido*\n\n";
+    message += `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}\n\n`;
+    
+    selectedImages.forEach(imageName => {
+        message += imageName + "\n";
+    });
+
+    message += "\nHorários selecionados:\n";
+    selectedTimes.forEach(time => {
+        message += time + "\n";
+    });
+
+    const totalPagar = inputValue * selectedTimes.length;
+    const totalReceber = (inputValue * 35) / selectedImages.length;
+    
+    message += "\nTotal a pagar: " + totalPagar.toFixed(2);
+    message += "\nTotal a receber: " + totalReceber.toFixed(2);
+
+    const resultado = "https://www.divertidu.com/time-certo#resultados;";
+    message += `\n\nRESULTADO: ${resultado}`;
+
+    const whatsappLink = `https://wa.me/5571992290058?text=${encodeURIComponent(message)}`;
+    setTimeout(() => {
+        window.open(whatsappLink, '_blank');
+        alert("Enviando via WhatsApp:\n\n" + message);
+    }, 2000); // Espera 1 segundo antes de redirecionar
+}
+</script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://wa.me/5571992290058?text=Quero%20CADASTRA%20" style="position:fixed;width:60px;height:60px;bottom:500px;right:10px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888; z-index:1000;" target="_blank">
+<i style="margin-top:16px" class="fa fa-whatsapp"></i>
+</body>
+</html>

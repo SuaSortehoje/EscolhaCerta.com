@@ -16,7 +16,9 @@
 
      <title>⚽TIME CERTO⚽</title>
      
-<style>body { background:grey;
+<style>
+body {
+    background: grey;
     font-family: Arial, sans-serif;
 }
 
@@ -41,7 +43,8 @@
 .image-container img {
     width: 50px;
     height: 50px;
-    border-radius:10px;
+    border-radius: 50%; /* Added border-radius */
+    border: 1px solid red; /* Added border */
 }
 
 #result {
@@ -55,72 +58,75 @@ button {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
-    background:lightblue;
-    border-radius:10px;
+    background: lightblue;
+    border-radius: 10px;
 }
+
 button:hover {
-    background:#00ff00;
+    background: #00ff00;
 }
-.image-checkbox{
-    display:none;
+
+.image-checkbox {
+    display: none;
 }
 
 .time-selection {
     background-color: grey;
-    
     overflow: hidden;
-    overflow-x: auto ;
+    overflow-x: auto;
     white-space: nowrap;
     margin-bottom: 0px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centraliza verticalmente */
-    height: fit-content; /* Altura automática baseada no conteúdo */
+    align-items: center;
+    height: fit-content;
 }
 
 .time-button {
-    
     padding: 5px 10px;
     font-size: 1em;
     cursor: pointer;
-    margin: 2px; /* Espaçamento entre os botões */
-}
-.time-button1{
-    width:43%;
-    padding: 0px 0px;
-    background:grey;
-    color:grey;
-    outline:none;
+    margin: 2px;
 }
 
-    .time-button.selected {
+.time-button1 {
+    width: 43%;
+    padding: 0px 0px;
+    background: grey;
+    color: grey;
+    outline: none;
+}
+
+.time-button.selected {
     background-color: ;
-  }
+}
+
 .horarios-container {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            padding: px;
-            margin-bottom: 0px;
-            border: 1px solid #ccc;
-            width: 100%;
-            
-        }
-      
-    .time-button.hidden {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: px;
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.time-button.hidden {
     display: none;
 }
+
 .valor {
-    text-align:center;
-    border-radius:10px;
+    text-align: center;
+    border-radius: 10px;
 }
+
 .selected {
-    background:gold;
+    background: gold;
     color: black;
 }
-
-
 </style>
+
+
 </head>
 <body>
 
@@ -543,6 +549,7 @@ button:hover {
     function toggleSelection(button) {
         button.classList.toggle('selected');
     }
+    let aviso ="Essa Aposta so e Valiada Apos o Pagamento. Antes da Extração"
 
     function sendWhatsApp() {
         let selectedImages = [];
@@ -578,6 +585,7 @@ button:hover {
             selectedTimes.push(button.textContent);
         });
 
+
         // Armazene os dados no localStorage
         localStorage.setItem('selectedImages', JSON.stringify(selectedImages));
         localStorage.setItem('selectedTimes', JSON.stringify(selectedTimes));
@@ -587,6 +595,7 @@ button:hover {
         window.location.href = "pixPagamento.html";
     }
 
+`${aviso}`
     document.getElementById('sendViaWhatsapp').addEventListener('click', sendWhatsApp);
 
     document.addEventListener('DOMContentLoaded', function() {

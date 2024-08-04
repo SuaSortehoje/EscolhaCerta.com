@@ -63,7 +63,7 @@ button {
 }
 
 button:hover {
-    background: #00ff00;
+    background: red;
 }
 
 .image-checkbox {
@@ -104,26 +104,51 @@ button:hover {
 .horarios-container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: px;
+    overflow-x: auto; /* Permite rolagem horizontal */
+    white-space: nowrap; /* Garante que os botões não quebrem para a próxima linha */
     margin-bottom: 0px;
     border: 1px solid #ccc;
     width: 100%;
 }
 
+.time-button {
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 2px;
+    min-width: 60px; /* Ajuste conforme necessário para garantir a visibilidade */
+    white-space: nowrap; /* Garante que o texto do botão não quebre para a próxima linha */
+}
+
+.time-button.selected {
+    background-color: gold;
+    color: black;
+}
+
+
 .time-button.hidden {
     display: none;
+}
+
+
+.selected {
+    background: gold;
+    color: black;
 }
 
 .valor {
     text-align: center;
     border-radius: 10px;
 }
-
-.selected {
-    background: gold;
-    color: black;
+.hidden {
+    display: none;
 }
+
+.past {
+    pointer-events: none; /* Impede interações */
+    opacity: 0.5; /* Diminui a opacidade */
+}
+
 </style>
 
 
@@ -348,7 +373,8 @@ button:hover {
         <div id="time-selection-container" class="time-selection">
   
     <div class="radio-container">
-      <div class="time-container">
+       <div class="container">
+        <div class="horarios-container">
          <button type="button"  class="time-button1" value="defauld" onclick="toggleSelection(this)">INICIO</button>
           <button type="button" class="time-button" value="01:00" onclick="toggleSelection(this)">01:00</button>
         <button type="button" class="time-button" value="01:10" onclick="toggleSelection(this)">01:10</button>
@@ -413,7 +439,7 @@ button:hover {
         <button type="button" class="time-button" value="10:50" onclick="toggleSelection(this)">10:50</button>
         <button type="button" class="time-button" value="11:00" onclick="toggleSelection(this)">11:00</button>
         <button type="button" class="time-button" value="11:10" onclick="toggleSelection(this)">11:10</button>
-        <button type="button" class="time-button" value="11:20" onclick="toggleSelection(this)">1!:20</button>
+        <button type="button" class="time-button" value="11:20" onclick="toggleSelection(this)">11:20</button>
         <button type="button" class="time-button" value="11:30" onclick="toggleSelection(this)">11:30</button>
         <button type="button" class="time-button" value="11:40" onclick="toggleSelection(this)">11:40</button>
         <button type="button" class="time-button" value="11:50" onclick="toggleSelection(this)">11:50</button>
@@ -496,9 +522,12 @@ button:hover {
   </div>
           </div>
         <button id="sendViaWhatsapp">VALIDAR BILHETE</button>
+        
  <script>
-   let maxAllowed = 10;
+document.addEventListener('DOMContentLoaded', () => {
+    const maxAllowed = 10; // Definição do número máximo de imagens permitidas
 
+    // Função para calcular e atualizar o resultado com base na entrada e na seleção de imagens
     function calculate() {
         let inputValue = parseFloat(document.getElementById('inputValue').value) || 0;
         let imageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
@@ -506,7 +535,6 @@ button:hover {
 
         if (imageCount > maxAllowed) {
             alert("Você só pode selecionar até 10 imagens.");
-            this.checked = false;
             return;
         }
 
@@ -516,41 +544,88 @@ button:hover {
         toggleOpacity();
     }
 
+    // Função para alternar a opacidade das imagens com base na seleção dos checkboxes
     function toggleOpacity() {
         const checkboxes = document.querySelectorAll('.image-checkbox');
         checkboxes.forEach(checkbox => {
             let imageContainer = checkbox.parentElement.querySelector('img');
-            imageContainer.style.opacity = checkbox.checked ? '0.4' : '1';
+            if (imageContainer) {
+                imageContainer.style.opacity = checkbox.checked ? '0.4' : '1';
+            }
         });
     }
 
-    document.querySelectorAll('.image-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', calculate);
-    });
+    // Função para atualizar o total quando o valor de entrada muda
+    function updateTotal() {
+        let value = parseFloat(document.getElementById('inputValue').value) || 0;
+        if (!isNaN(value)) {
+            let imageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
+            let imageCount = imageCheckboxes.length;
 
+            if (imageCount > maxAllowed) {
+                return;
+            }
+
+            let result = (value * 35) / imageCount;
+            document.getElementById('result').textContent = 'Total: ' + result.toFixed(2);
+        }
+    }
+
+    // Função para atualizar a contagem de checkboxes selecionados
+    function updateCheckboxCount() {
+        let checkboxes = document.querySelectorAll('.image-checkbox');
+        let checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+        document.getElementById('checkboxCount').textContent = 'Imagens Marcadas: ' + checkedCount;
+    }
+
+    // Função para ocultar horários passados e destacar horários futuros
     function hidePastTimes() {
-        const currentTime = new Date();
-        const currentHours = currentTime.getHours();
-        const currentMinutes = currentTime.getMinutes();
+        const now = new Date();
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
         const buttons = document.querySelectorAll('.time-button');
 
         buttons.forEach(button => {
             const [hours, minutes] = button.value.split(':').map(Number);
             const timeDifference = (hours * 60 + minutes) - (currentHours * 60 + currentMinutes);
 
-            if (timeDifference <= 2) {
-                button.classList.add('hidden');
+            if (timeDifference < 0) {
+                button.classList.add('past');
+                button.disabled = true; // Adiciona a desativação visual
+            } else {
+                button.classList.remove('past');
+                button.disabled = false; // Garante que os horários futuros possam ser selecionados
             }
         });
     }
 
-    window.onload = hidePastTimes;
+    // Função para destacar o horário atual
+    function highlightCurrentTime() {
+        const buttons = document.querySelectorAll('.time-button');
+        const now = new Date();
+        const currentTime = now.getHours() + ':' + ('0' + now.getMinutes()).slice(-2);
 
-    function toggleSelection(button) {
-        button.classList.toggle('selected');
+        buttons.forEach(button => {
+            const buttonTime = button.getAttribute('value');
+            if (buttonTime === currentTime) {
+                button.classList.add('selected');
+                button.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+            } else if (buttonTime > currentTime) {
+                button.classList.add('next-time');
+            } else {
+                button.classList.remove('selected', 'next-time');
+            }
+        });
     }
-    let aviso ="Essa Aposta so e Valiada Apos o Pagamento. Antes da Extração"
 
+    // Função para selecionar e desmarcar horários
+    function toggleSelection(button) {
+        if (!button.classList.contains('past')) {
+            button.classList.toggle('selected');
+        }
+    }
+
+    // Função para enviar via WhatsApp e armazenar dados no localStorage
     function sendWhatsApp() {
         let selectedImages = [];
         let selectedTimes = [];
@@ -575,74 +650,63 @@ button:hover {
 
         selectedImageCheckboxes.forEach(checkbox => {
             let img = checkbox.nextElementSibling.querySelector('img');
-            let imageUrl = img.getAttribute('src');
-            let altText = img.getAttribute('alt');
-            let imageName = imageUrl.match(/main\/([^/]+)\.(jpeg|jpg|png)/)[1];
-            selectedImages.push(`${imageName} (${altText})`);
+            if (img) {
+                let imageUrl = img.getAttribute('src');
+                let altText = img.getAttribute('alt');
+                let imageName = imageUrl.match(/main\/([^/]+)\.(jpeg|jpg|png)/)[1];
+                selectedImages.push(`${imageName} (${altText})`);
+            }
         });
 
         selectedTimeButtons.forEach(button => {
             selectedTimes.push(button.textContent);
         });
 
-
-        // Armazene os dados no localStorage
-        localStorage.setItem('selectedImages', JSON.stringify(selectedImages));
-        localStorage.setItem('selectedTimes', JSON.stringify(selectedTimes));
-        localStorage.setItem('inputValue', inputValue);
-
-        // Redirecionar para a página de pagamento
-        window.location.href = "pixPagamento.html";
-    }
-
-`${aviso}`
-    document.getElementById('sendViaWhatsapp').addEventListener('click', sendWhatsApp);
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var inputValue = document.getElementById('inputValue');
-        var resultDiv = document.getElementById('result');
-        var checkboxCountDiv = document.getElementById('checkboxCount');
-
-        function updateTotal() {
-            var value = parseFloat(inputValue.value) || 0;
-            if (!isNaN(value)) {
-                let imageCheckboxes = document.querySelectorAll('.image-checkbox:checked');
-                let imageCount = imageCheckboxes.length;
-
-                if (imageCount > maxAllowed) {
-                    return;
-                }
-
-                let result = (value * 35) / imageCount;
-                resultDiv.textContent = 'Total: ' + result.toFixed(2);
-            }
-        }
-
-        inputValue.addEventListener('input', updateTotal);
-
-        function updateCheckboxCount() {
-            var checkboxes = document.querySelectorAll('.image-checkbox');
-            var checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-            checkboxCountDiv.textContent = 'Time Marcados: ' + checkedCount;
-        }
-
-        var checkboxes = document.querySelectorAll('.image-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateCheckboxCount);
+        // Constrói a mensagem para o WhatsApp
+        let message = "Seleção de números de imagens:\n";
+        selectedImages.forEach(image => {
+            message += image + "\n";
         });
 
-        updateCheckboxCount();
+        message += "\nHorários selecionados:\n";
+        selectedTimes.forEach(time => {
+            message += time + "\n";
+        });
+
+        message += "\nTotal a pagar: " + (inputValue * selectedTimes.length).toFixed(2);
+        message += "\nTotal a receber: " + ((inputValue * 35) / selectedImageCheckboxes.length).toFixed(2);
+
+        // Constrói o link do WhatsApp com a mensagem codificada
+        let whatsappLink = `https://wa.me/5571992290058?text=${encodeURIComponent(message)}`;
+
+        // Abre o link do WhatsApp em uma nova aba
+        window.open(whatsappLink, '_blank');
+
+        // Simulação de envio via WhatsApp (alerta no navegador)
+        alert("Enviando via WhatsApp:\n\n" + message);
+    }
+
+    // Adiciona event listener para os checkboxes e input
+    document.querySelectorAll('.image-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', calculate);
     });
 
-    function toggleSelection(button) {
-        button.classList.toggle('selected');
-    }
+    document.getElementById('inputValue').addEventListener('input', updateTotal);
 
-    function submitTimes() {
-        const selectedButtons = document.querySelectorAll('.time-button.selected');
-        const selectedTimes = Array.from(selectedButtons).map(button => button.value);
-        alert('Horários selecionados: ' + selectedTimes.join(', '));
-    }
+    document.querySelectorAll('.time-button').forEach(button => {
+        button.addEventListener('click', () => toggleSelection(button));
+    });
+
+    // Adiciona event listener para o botão de enviar via WhatsApp
+    document.getElementById('sendViaWhatsapp').addEventListener('click', sendWhatsApp);
+
+    // Executar as funções de ocultar horários passados e destacar horários futuros ao carregar a página
+    window.onload = () => {
+        hidePastTimes();
+        highlightCurrentTime();
+    };
+});
+
 </script>
 
 </body>
